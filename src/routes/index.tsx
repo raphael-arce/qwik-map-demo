@@ -138,10 +138,10 @@ export default component$(() => {
           </a>
         </li>
       </ul>
-      <Link class="mindblow" href="/flower/">
+      <Link class="mindblow" href="/ssr/">
         Blow my mind 🤯
       </Link>
-      <Link class="todolist" href="/todolist/">
+      <Link class="todolist" href="/csr/">
         TODO demo 📝
       </Link>
     </div>

@@ -1,5 +1,5 @@
-import { component$ } from '@builder.io/qwik';
-import { QwikMap } from '../../../../qwik-map/src/components/QwikMap'
+import { component$ } from "@builder.io/qwik";
+import { QwikMap } from "../../../../qwik-map/src/components/QwikMap";
 
 export default component$(() => {
   return (

@@ -1,29 +1,36 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
-
-import styles from "./header.css?inline";
+import { component$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  const { url } = useLocation();
 
   return (
-    <header>
-      <div class="logo">
-        <a
-          href="https://github.com/raphael-arce/qwik-map"
-          target="_blank"
-          rel="noopener"
-        >
-          Qwik Map
-        </a>
+    <header class="flex flex-row items-baseline p-4">
+      <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl">Qwik Map</a>
+        </div>
+        <div class="flex-none">
+          <div class="tabs">
+            <a
+              class={`tab tab-bordered ${
+                url.pathname === "/" ? "tab-active" : null
+              }`}
+              href="/"
+            >
+              SSR'd Map
+            </a>
+            <a
+              class={`tab tab-bordered ${
+                url.pathname === "/csr/" ? "tab-active" : null
+              }`}
+              href="/csr/"
+            >
+              CSR'd Map
+            </a>
+          </div>
+        </div>
       </div>
-      <ul>
-        <li>
-          <a href="/ssr">SSR'd Map (fixed size)</a>
-        </li>
-        <li>
-          <a href="/csr">CSR'd Map (dynamic sizes)</a>
-        </li>
-      </ul>
     </header>
   );
 });
